@@ -64,7 +64,7 @@ namespace IdentityStream.HttpMessageSigning {
 
             return builder.ToString();
 #else
-            return Convert.ToHexString(bytes, offset, length);
+            return Convert.ToHexString(bytes, offset, length).ToLowerInvariant();
 #endif
         }
 
