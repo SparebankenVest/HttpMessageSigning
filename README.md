@@ -50,11 +50,36 @@ var signatureAlgorithm = SignatureAlgorithm.Create(rsaOrECDsaAlgorithm);
 
 var config = new HttpMessageSigningConfiguration("key-id", signatureAlgorithm);
 
-var handler = new SigningHttpMessageHandler(config);
+var handler = new SigningHttpMessageHandler(config, new HttpClientHandler());
 
 using var client = new HttpClient(handler);
 
 // Make requests using client :)
 ```
 <sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L29-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-httpclient_signinghttpmessagehandler' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+### Dependency Injection
+
+To use HTTP message signing with `HttpClient` registered in dependency injection, use `AddHttpMessageHandler` on the `IHttpClientBuilder` to add the `SigningHttpMessageHandler` to the clients handler chain:
+
+<!-- snippet: AddHttpMessageHandler_SigningHttpMessageHandler -->
+<a id='snippet-addhttpmessagehandler_signinghttpmessagehandler'></a>
+```cs
+var signatureAlgorithm = SignatureAlgorithm.Create(rsaOrECDsaAlgorithm);
+
+services.AddSingleton(new HttpMessageSigningConfiguration("key-id", signatureAlgorithm));
+
+services.AddHttpClient("ClientName")
+    .AddHttpMessageHandler<SigningHttpMessageHandler>();
+
+// Inject `IHttpClientFactory` and create the named client to make requests with :)
+
+
+services.AddHttpClient<IApiClient, ApiClient>()
+    .AddHttpMessageHandler<SigningHttpMessageHandler>();
+
+// Inject an `HttpClient` instance in `ApiClient` and make requests :)
+```
+<sup><a href='/test/SparebankenVest.HttpMessageSigning.Tests/Snippets.cs#L43-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-addhttpmessagehandler_signinghttpmessagehandler' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
