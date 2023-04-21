@@ -81,5 +81,5 @@ services.AddHttpClient<IApiClient, ApiClient>()
 
 // Inject an `HttpClient` instance in `ApiClient` and make requests :)
 ```
-<sup><a href='/test/SparebankenVest.HttpMessageSigning.Tests/Snippets.cs#L43-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-addhttpmessagehandler_signinghttpmessagehandler' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L43-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-addhttpmessagehandler_signinghttpmessagehandler' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
