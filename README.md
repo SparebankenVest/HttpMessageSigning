@@ -24,7 +24,7 @@ When using a certificate for signing, there's a convenience method called `HttpM
 To use HTTP message signing with WCF, call `UseHttpMessageSigning` on your client:
 
 <!-- snippet: WCF_Endpoint_UseHttpMessageSigning -->
-<a id='snippet-wcf_endpoint_usehttpmessagesigning'></a>
+<a id='snippet-WCF_Endpoint_UseHttpMessageSigning'></a>
 ```cs
 var signatureAlgorithm = SignatureAlgorithm.Create(rsaOrECDsaAlgorithm);
 
@@ -36,7 +36,7 @@ client.UseHttpMessageSigning(config);
 
 // Make calls using client :)
 ```
-<sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L15-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-wcf_endpoint_usehttpmessagesigning' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L15-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-WCF_Endpoint_UseHttpMessageSigning' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ### HttpClient
@@ -44,7 +44,7 @@ client.UseHttpMessageSigning(config);
 To use HTTP message signing with `HttpClient`, create an instance of `SigningHttpMessageHandler` and pass it when creating the `HttpClient` instance:
 
 <!-- snippet: HttpClient_SigningHttpMessageHandler -->
-<a id='snippet-httpclient_signinghttpmessagehandler'></a>
+<a id='snippet-HttpClient_SigningHttpMessageHandler'></a>
 ```cs
 var signatureAlgorithm = SignatureAlgorithm.Create(rsaOrECDsaAlgorithm);
 
@@ -56,5 +56,5 @@ using var client = new HttpClient(handler);
 
 // Make requests using client :)
 ```
-<sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L29-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-httpclient_signinghttpmessagehandler' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/test/IdentityStream.HttpMessageSigning.Tests/Snippets.cs#L29-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-HttpClient_SigningHttpMessageHandler' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
